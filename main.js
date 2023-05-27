@@ -13,24 +13,23 @@ function descuento(x, impDecimal) {
     return (x * impDecimal);
 }
 
-while(true) {
-    function calcularSalario() {
-        // Variables Input
-        let valorHora = parseFloat(prompt("Escribe el valor hora a calcular"));
-        let horasTrabajadas = parseInt(prompt("Escribe la cantidad de horas por jornada"));
-        let diasQuincena = parseInt(prompt("Escribe la cantidad de dias a calcular"));
-        let impEntero = parseFloat(prompt("Escribe el porcentaje total de impuestos"))
-        //
-        if(!isNaN(valorHora) && !isNaN(horasTrabajadas) && !isNaN(diasQuincena) && !isNaN(impEntero)){
-            let impDecimal = impuestos(impEntero)
-            let resultadoInicial = multiplica(multiplica(valorHora, horasTrabajadas), diasQuincena);
-            let descuentos = descuento(resultadoInicial, impDecimal);
-            let resultadoFinal = resta(resultadoInicial, descuentos);
-            alert(`El resultado final con ${impEntero}% de impuestos es $${resultadoFinal} pesos`)
-        }else{
-            alert("Los datos ingresados son incorrectos o estan incompletos.");
-        }
+function calcularSalario() {
+    // Variables Input
+    let valorHora = document.getElementById("valor-hora").value;
+    let horasTrabajadas = document.getElementById("horas-trabajadas").value;
+    let diasQuincena = document.getElementById("dias-quincena").value;
+    let impEntero = document.getElementById("imp-entero").value;
+    //
+    if(!isNaN(valorHora) && !isNaN(horasTrabajadas) && !isNaN(diasQuincena) && !isNaN(impEntero)){
+        let impDecimal = impuestos(impEntero)
+        let resultadoInicial = multiplica(multiplica(valorHora, horasTrabajadas), diasQuincena);
+        let descuentos = descuento(resultadoInicial, impDecimal);
+        let resultadoFinal = resta(resultadoInicial, descuentos);
+
+        document.getElementById("resultado").innerHTML = `El resultado final con ${impEntero}% de impuestos es $${resultadoFinal} pesos`;
+
+        // alert(`El resultado final con ${impEntero}% de impuestos es $${resultadoFinal} pesos`)
+    }else{
+        alert("Los datos ingresados son incorrectos o estan incompletos.");
     }
-    
-    calcularSalario()
 }

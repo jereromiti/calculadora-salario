@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Calculador de salario App</title>
 </head>
 <body>
+    <article>
+        <h1>Calculador de salario</h1>
+        <div class="input">
+            <label for="valor-hora">Valor hora:</label>
+            <input type="number" placeholder="..." id="valor-hora"/>
+        </div>
+        <div class="input">
+            <label for="horas-trabajadas">Horas trabajadas:</label>
+            <input type="number" placeholder="..." id="horas-trabajadas"/>
+        </div>
+        <div class="input">
+            <label for="dias-quincena">Cantidad de dias:</label>
+            <input type="number" placeholder="..." id="dias-quincena"/>
+        </div>
+        <div class="input">
+            <label for="imp-entero">Cantidad de impuestos:</label>
+            <input type="number" placeholder="..." id="imp-entero"/>
+        </div>
+        <button class="btn" onclick="calcularSalario()">Calcular</button>
+        <p class="resultado" id="resultado"></p>
+    </article>
     <script src="./main.js"></script>
 </body>
 </html>
