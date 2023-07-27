@@ -9,6 +9,7 @@ function impuestos(impEntero) {
     let impDecimal = impEntero / 100;
     return impDecimal;
 }
+
 function descuento(x, impDecimal) {
     return (x * impDecimal);
 }
@@ -19,16 +20,16 @@ function calcularSalario() {
     let horasTrabajadas = document.getElementById("horas-trabajadas").value;
     let diasQuincena = document.getElementById("dias-quincena").value;
     let impEntero = document.getElementById("imp-entero").value;
+    let bonoEntero = document.getElementById("bono").value;
     //
     if(!isNaN(valorHora) && !isNaN(horasTrabajadas) && !isNaN(diasQuincena) && !isNaN(impEntero)){
         let impDecimal = impuestos(impEntero)
         let resultadoInicial = multiplica(multiplica(valorHora, horasTrabajadas), diasQuincena);
         let descuentos = descuento(resultadoInicial, impDecimal);
-        let resultadoFinal = resta(resultadoInicial, descuentos);
-
+        let resultadoMid = resta(resultadoInicial, descuentos);
+        let bonoF = ((resultadoMid * bonoEntero) / 100)
+        let resultadoFinal = suma(resultadoMid, bonoF);
         document.getElementById("resultado").innerHTML = `El resultado final con ${impEntero}% de impuestos es $${resultadoFinal} pesos`;
-
-        // alert(`El resultado final con ${impEntero}% de impuestos es $${resultadoFinal} pesos`)
     }else{
         alert("Los datos ingresados son incorrectos o estan incompletos.");
     }
